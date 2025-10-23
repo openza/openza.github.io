@@ -20,12 +20,6 @@
         .fade-in {
             animation: fadeIn 0.6s ease-out forwards;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -33,19 +27,13 @@
     <header class="bg-white shadow-sm">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <svg class="w-8 h-8" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="20" fill="#1e293b"/>
-                        <circle cx="24" cy="24" r="16" fill="white"/>
-                        <circle cx="24" cy="24" r="12" fill="#475569"/>
-                        <path d="M 26 18 L 20 25 L 24 25 L 22 30 L 28 23 L 24 23 Z" fill="white"/>
-                    </svg>
-                    <span class="text-2xl font-bold gradient-text">Openza</span>
-                </div>
+                <a href="/" class="flex items-center">
+                    <img src="logo.svg" alt="Openza" class="h-10">
+                </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition">Projects</a>
-                    <a href="#about" class="text-gray-600 hover:text-indigo-600 transition">About</a>
-                    <a href="https://github.com/openza" target="_blank" class="text-gray-600 hover:text-indigo-600 transition">GitHub</a>
+                    <a href="#projects" class="text-gray-600 hover:text-slate-900 transition">Projects</a>
+                    <a href="#about" class="text-gray-600 hover:text-slate-900 transition">About</a>
+                    <a href="https://github.com/openza" target="_blank" class="text-gray-600 hover:text-slate-900 transition">GitHub</a>
                 </div>
             </div>
         </nav>
@@ -55,7 +43,7 @@
     <section class="container mx-auto px-6 py-20 text-center fade-in">
         <h1 class="text-5xl md:text-6xl font-bold mb-6">
             Modern Task Management,<br>
-            <span class="gradient-text">Simplified</span>
+            <span class="text-slate-800">Simplified</span>
         </h1>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Open source productivity tools that bring all your tasks together in one beautiful, unified interface.
