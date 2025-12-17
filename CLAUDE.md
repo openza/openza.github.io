@@ -2,7 +2,7 @@
 
 ## Git Workflow Rules
 
-### ⚠️ CRITICAL: Never Work Directly on Main Branch
+### CRITICAL: Never Work Directly on Main Branch
 
 **ALWAYS follow this workflow:**
 
@@ -27,7 +27,7 @@
    - `feat/` - New features (e.g., `feat/add-contact-form`)
    - `fix/` - Bug fixes (e.g., `fix/broken-navigation`)
    - `docs/` - Documentation updates (e.g., `docs/update-readme`)
-   - `refactor/` - Code refactoring (e.g., `refactor/simplify-css`)
+   - `refactor/` - Code refactoring (e.g., `refactor/simplify-components`)
    - `style/` - Visual/styling changes (e.g., `style/update-colors`)
 
 ### Complete Git Workflow
@@ -88,9 +88,9 @@ Follow conventional commits format:
 
 **Examples:**
 ```
-feat: Add Quick Action Lightning icon as favicon
+feat: Add testimonials section to landing page
 fix: Correct header alignment on mobile
-docs: Update README with installation instructions
+docs: Update README with Astro setup instructions
 style: Update color scheme to professional charcoal palette
 ```
 
@@ -115,10 +115,10 @@ Brief description of changes and motivation
 - Be clear and concise
 
 ## Testing
-- [ ] Tested locally
+- [ ] Tested locally with `pnpm dev`
 - [ ] Verified on different screen sizes (if UI change)
-- [ ] No breaking changes
-- [ ] All links work correctly
+- [ ] Build succeeds with `pnpm build`
+- [ ] No console errors
 
 ## Screenshots
 (If applicable)
@@ -127,30 +127,43 @@ Brief description of changes and motivation
 ## Project-Specific Guidelines
 
 ### Technology Stack
-- Static HTML/CSS/JavaScript site
-- Tailwind CSS for styling
-- SVG icons and assets
-- GitHub Pages for hosting
+- **Astro** - Static site generator with component-based architecture
+- **Tailwind CSS** - Utility-first styling
+- **SVG icons** - Brand assets in `public/` directory
+- **GitHub Pages** - Hosting via GitHub Actions
 
 ### File Organization
-- `index.html` - Main landing page
-- `icon.svg`, `favicon.svg`, etc. - Brand assets
-- `ICON-README.md` - Icon documentation
-- `README.md` - Project documentation
+```
+├── public/              # Static assets (icons, images)
+├── src/
+│   ├── components/      # Reusable Astro components
+│   │   ├── About.astro
+│   │   ├── Features.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   └── Projects.astro
+│   ├── layouts/         # Page layouts
+│   │   └── Layout.astro
+│   └── pages/           # Route pages
+│       └── index.astro
+├── ICON-README.md       # Icon documentation
+└── README.md            # Project documentation
+```
 
 ### Code Style
-- Use semantic HTML
+- Use semantic HTML in Astro components
 - Keep CSS minimal (prefer Tailwind utilities)
 - Professional, clean design aesthetic
 - Charcoal/slate color palette for branding
 - Ensure responsive design for all screen sizes
 
 ### Before Committing
-1. Test the site locally (open index.html in browser)
+1. Run `pnpm dev` and test the site locally
 2. Check responsive design (resize browser window)
 3. Verify all links work
-4. Ensure no console errors
-5. Validate HTML if making structural changes
+4. Run `pnpm build` to ensure build succeeds
+5. Check for no console errors
 
 ## Common Tasks
 
@@ -159,8 +172,11 @@ Brief description of changes and motivation
 git checkout main
 git pull origin main
 git checkout -b feat/add-testimonials-section
-# Make changes to index.html
-git add index.html
+
+# Create new component: src/components/Testimonials.astro
+# Import and add to src/pages/index.astro
+
+git add src/components/Testimonials.astro src/pages/index.astro
 git commit -m "feat: Add testimonials section to landing page"
 git push -u origin feat/add-testimonials-section
 gh pr create --title "feat: Add testimonials section" --body "..."
@@ -171,8 +187,10 @@ gh pr create --title "feat: Add testimonials section" --body "..."
 git checkout main
 git pull origin main
 git checkout -b style/update-favicon
-# Update icon files
-git add icon.svg favicon.svg
+
+# Update icon files in public/
+
+git add public/
 git commit -m "style: Update favicon design"
 git push -u origin style/update-favicon
 gh pr create --title "style: Update favicon design" --body "..."
@@ -183,11 +201,29 @@ gh pr create --title "style: Update favicon design" --body "..."
 git checkout main
 git pull origin main
 git checkout -b fix/mobile-menu-broken
-# Fix the issue
-git add index.html
+
+# Fix the issue in relevant .astro files
+
+git add src/components/Header.astro
 git commit -m "fix: Resolve mobile menu not opening on tap"
 git push -u origin fix/mobile-menu-broken
 gh pr create --title "fix: Resolve mobile menu issue" --body "..."
+```
+
+## Development Commands
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server (http://localhost:4321)
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
 ## Emergency Situations
@@ -211,15 +247,15 @@ git checkout -b feat/your-feature
 
 ## Reminders
 
-- ✅ Always create a feature branch
-- ✅ Never work on main directly
-- ✅ Write clear commit messages
-- ✅ Create descriptive PRs
-- ✅ Test before committing
-- ✅ Pull latest main before creating new branches
-- ❌ Never force push to main (it's blocked anyway)
-- ❌ Never commit directly to main
-- ❌ Never skip the PR process
+- Always create a feature branch
+- Never work on main directly
+- Write clear commit messages
+- Create descriptive PRs
+- Test with `pnpm dev` before committing
+- Run `pnpm build` to verify build succeeds
+- Pull latest main before creating new branches
+- Never force push to main (it's blocked anyway)
+- Never skip the PR process
 
 ## Questions?
 
