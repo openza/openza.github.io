@@ -107,6 +107,13 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 ```
 
+## Projects
+
+| Project | Description |
+|---------|-------------|
+| [gitdesk](https://github.com/openza/gitdesk) | GitHub PR review inbox. Track review requests and manage PRs from your desktop. |
+| [tasks](https://github.com/openza/tasks) | Unified task manager for Todoist and Microsoft To-Do. Desktop app for Linux. |
+
 ## License
 
 MIT License - See LICENSE file for details.
