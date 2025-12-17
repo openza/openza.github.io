@@ -107,12 +107,12 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 ```
 
-## Links Between Sites
+## Projects
 
-This organization site links to project-specific documentation:
-- Openza Desktop: https://openza.github.io/openza-desktop
-
-Each project repository should have its own GitHub Pages enabled for detailed documentation.
+| Project | Description |
+|---------|-------------|
+| [gitdesk](https://github.com/openza/gitdesk) | GitHub PR review inbox. Track review requests and manage PRs from your desktop. |
+| [tasks](https://github.com/openza/tasks) | Unified task manager for Todoist and Microsoft To-Do. Desktop app for Linux. |
 
 ## License
 
