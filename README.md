@@ -107,13 +107,6 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 ```
 
-## Links Between Sites
-
-This organization site links to project-specific documentation:
-- Openza Desktop: https://openza.github.io/openza-desktop
-
-Each project repository should have its own GitHub Pages enabled for detailed documentation.
-
 ## License
 
 MIT License - See LICENSE file for details.
