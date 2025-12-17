@@ -2,99 +2,118 @@
 
 This is the source code for the Openza organization landing page, hosted at https://openza.github.io
 
-## Setup Instructions
-
-### Step 1: Create the Organization Repository
-
-1. Go to GitHub and create a **new repository** in the `openza` organization
-2. Name it exactly: `openza.github.io` (this is required for organization GitHub Pages)
-3. Make it **public**
-4. Do NOT initialize with README (we'll push these files)
-
-### Step 2: Push These Files
-
-From your terminal, navigate to this `github-pages-org` folder and run:
-
-```bash
-# Initialize git repository
-git init
-
-# Add all files
-git add .
-
-# Create initial commit
-git commit -m "Initial commit: Openza organization landing page"
-
-# Add remote (replace with your actual repo URL)
-git remote add origin https://github.com/openza/openza.github.io.git
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
-```
-
-### Step 3: Enable GitHub Pages
-
-1. Go to the repository settings: `https://github.com/openza/openza.github.io/settings/pages`
-2. Under "Build and deployment":
-   - Source: Select **"GitHub Actions"**
-   - This will automatically deploy using the workflow in `.github/workflows/deploy.yml`
-
-### Step 4: Wait for Deployment
-
-- GitHub Actions will automatically build and deploy your site
-- Check the "Actions" tab to see deployment progress
-- Site will be live at: `https://openza.github.io` (usually takes 1-2 minutes)
-
-## Updating the Site
-
-Simply push changes to the `main` branch:
-
-```bash
-git add .
-git commit -m "Update: description of changes"
-git push
-```
-
-GitHub Actions will automatically redeploy the site.
-
 ## Technology Stack
 
-- **Pure HTML/CSS/JavaScript** - No build step required
-- **Tailwind CSS** - Via CDN for styling
-- **GitHub Actions** - Automatic deployment
+- **Astro** - Static site generator with component-based architecture
+- **Tailwind CSS** - Utility-first CSS framework
+- **GitHub Actions** - Automatic deployment with pnpm
 - **GitHub Pages** - Free hosting
+
+## Project Structure
+
+```
+├── public/              # Static assets (icons, images)
+│   ├── favicon.svg
+│   ├── icon.svg
+│   ├── icon-large.svg
+│   └── logo.svg
+├── src/
+│   ├── components/      # Reusable Astro components
+│   │   ├── About.astro
+│   │   ├── Features.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   └── Projects.astro
+│   ├── layouts/         # Page layouts
+│   │   └── Layout.astro
+│   └── pages/           # Route pages
+│       └── index.astro
+├── astro.config.mjs     # Astro configuration
+├── package.json
+└── tsconfig.json
+```
+
+## Local Development
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm (recommended) or npm
+
+### Setup
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+```
+
+The development server runs at `http://localhost:4321`
+
+## Deployment
+
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch.
+
+### How it works
+
+1. Push changes to `main` branch
+2. GitHub Actions workflow (`.github/workflows/deploy.yml`) triggers
+3. Astro builds the site to `dist/` folder
+4. Built files are deployed to GitHub Pages
+5. Site is live at https://openza.github.io
+
+### Manual deployment check
+
+- Check the "Actions" tab to see deployment progress
+- Deployment usually takes 1-2 minutes
 
 ## Customization
 
 ### Update Content
 
-Edit `index.html` to:
-- Change hero text
-- Add/remove projects
-- Update contact information
-- Modify footer links
+Edit the Astro components in `src/components/`:
+- `Hero.astro` - Main hero section with headline
+- `Features.astro` - Feature highlights
+- `Projects.astro` - Project listings
+- `About.astro` - About section
+- `Header.astro` - Navigation header
+- `Footer.astro` - Footer with links
 
 ### Update Styling
 
-The site uses Tailwind CSS via CDN. You can:
-- Modify Tailwind classes in the HTML
-- Add custom CSS in the `<style>` tag
-- Change color scheme (currently using indigo/purple gradient)
+- Modify Tailwind classes directly in component files
+- Add custom CSS in `Layout.astro` or component `<style>` tags
+- Current color scheme uses charcoal/slate professional palette
 
-### Add Analytics (Optional)
+### Add New Pages
 
-To add Google Analytics or other tracking:
-1. Add the tracking script to the `<head>` section of `index.html`
-2. Ensure it complies with privacy regulations
+Create new `.astro` files in `src/pages/`:
+```astro
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page Title">
+  <!-- Your content here -->
+</Layout>
+```
 
 ## Links Between Sites
 
 This organization site links to project-specific documentation:
-- Openza Desktop: `https://openza.github.io/openza-desktop`
+- Openza Desktop: https://openza.github.io/openza-desktop
 
 Each project repository should have its own GitHub Pages enabled for detailed documentation.
 
 ## License
 
-MIT License - See the main Openza Desktop repository for details.
+MIT License - See LICENSE file for details.
