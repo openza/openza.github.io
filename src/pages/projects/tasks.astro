@@ -1,0 +1,528 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLatestRelease } from '../../lib/github';
+
+const release = await getLatestRelease('tasks');
+const version = release?.version ?? 'Latest';
+---
+
+<Layout title="Openza Tasks - Unified Task Manager" description="Bring your Todoist and Microsoft To-Do tasks together. A beautiful, distraction-free task manager for Linux and Windows.">
+    <Header />
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <a href="/#projects" class="back-link">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Projects
+                </a>
+                <div class="hero-content">
+                    <span class="version-badge">{version}</span>
+                    <h1>All Your Tasks,<br><span class="highlight">One Place</span></h1>
+                    <p class="hero-description">
+                        Bring your Todoist and Microsoft To-Do tasks together in a beautiful,
+                        distraction-free interface. Stay organized without switching apps.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#download" class="btn btn-primary">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download Free
+                        </a>
+                        <a href="/tasks" class="btn btn-secondary">
+                            View Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Features</p>
+                    <h2 class="section-title">Everything You Need to Stay Focused</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon cyan">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                            </svg>
+                        </div>
+                        <h3>4-Pane GTD Layout</h3>
+                        <p>See your Inbox, Today, Upcoming, and completed tasks at a glance. Classic Getting Things Done workflow built in.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon purple">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            </svg>
+                        </div>
+                        <h3>Two-Way Sync</h3>
+                        <p>Changes sync back to Todoist and Microsoft To-Do. Edit anywhere, see updates everywhere.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon green">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3>Local-First</h3>
+                        <p>Your data stays on your computer. Works offline, syncs when connected. You're always in control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon orange">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                            </svg>
+                        </div>
+                        <h3>Automatic Backups</h3>
+                        <p>Never lose your tasks. Automatic local backups keep your data safe even if something goes wrong.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon cyan">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Markdown Support</h3>
+                        <p>Import and export tasks as Markdown. Easy to backup, share, or migrate your data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon purple">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                        </div>
+                        <h3>Dark Theme</h3>
+                        <p>Easy on the eyes, day or night. A beautiful dark interface that helps you focus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations Section -->
+        <section class="integrations">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Integrations</p>
+                    <h2 class="section-title">Connect Your Favorite Services</h2>
+                </div>
+                <div class="integrations-grid">
+                    <div class="integration-card">
+                        <div class="integration-icon">
+                            <svg viewBox="0 0 24 24" fill="#E44332">
+                                <path d="M21 0H3C1.35 0 0 1.35 0 3v18c0 1.65 1.35 3 3 3h18c1.65 0 3-1.35 3-3V3c0-1.65-1.35-3-3-3zM9.15 18.6l-4.95-4.95 1.4-1.4 3.55 3.55 7.55-7.55 1.4 1.4-8.95 8.95z"/>
+                            </svg>
+                        </div>
+                        <h3>Todoist</h3>
+                        <p>Sync your projects, tasks, and labels. Two-way sync keeps everything up to date.</p>
+                    </div>
+                    <div class="integration-card">
+                        <div class="integration-icon">
+                            <svg viewBox="0 0 24 24" fill="#3B82F6">
+                                <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Microsoft To-Do</h3>
+                        <p>Connect your Microsoft account and access all your lists and tasks seamlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download" id="download">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Download</p>
+                    <h2 class="section-title">Get Openza Tasks</h2>
+                    <p class="section-subtitle">Free and open source. Available for Linux and Windows.</p>
+                </div>
+                <div class="platform-grid">
+                    <div class="platform-card">
+                        <div class="platform-icon windows">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+                            </svg>
+                        </div>
+                        <h3>Windows</h3>
+                        <p class="platform-req">Windows 10 or later (64-bit)</p>
+                        {release?.assets.windows ? (
+                            <a href={release.assets.windows} class="btn btn-primary download-btn">
+                                Download .exe
+                            </a>
+                        ) : (
+                            <span class="unavailable">Not available</span>
+                        )}
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="platform-icon linux">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139z"/>
+                            </svg>
+                        </div>
+                        <h3>Linux (AppImage)</h3>
+                        <p class="platform-req">Ubuntu 22.04+, Fedora 35+</p>
+                        {release?.assets.appimage ? (
+                            <a href={release.assets.appimage} class="btn btn-primary download-btn">
+                                Download AppImage
+                            </a>
+                        ) : (
+                            <span class="unavailable">Not available</span>
+                        )}
+                        <p class="install-hint">chmod +x && run</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="platform-icon flatpak">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Linux (Flatpak)</h3>
+                        <p class="platform-req">Any Linux with Flatpak</p>
+                        {release?.assets.flatpak ? (
+                            <a href={release.assets.flatpak} class="btn btn-primary download-btn">
+                                Download Flatpak
+                            </a>
+                        ) : (
+                            <span class="unavailable">Not available</span>
+                        )}
+                        <p class="install-hint">flatpak install</p>
+                    </div>
+                </div>
+                <div class="download-footer">
+                    <a href="https://github.com/openza/tasks/releases" target="_blank" class="alt-link">
+                        All releases on GitHub
+                    </a>
+                    <a href="/tasks/getting-started/installation" class="alt-link">
+                        Installation guide
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 140px 0 80px;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        margin-bottom: 32px;
+        transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+        color: var(--accent-cyan);
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .version-badge {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        padding: 6px 14px;
+        background: rgba(63, 185, 80, 0.15);
+        color: var(--accent-green);
+        border-radius: 100px;
+        margin-bottom: 24px;
+    }
+
+    .hero h1 {
+        font-family: var(--font-mono);
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 24px;
+    }
+
+    .hero h1 .highlight {
+        background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+        line-height: 1.7;
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    /* Features */
+    .features {
+        padding: 100px 0;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .feature-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 28px;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-cyan);
+        box-shadow: 0 16px 32px var(--shadow-color);
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+
+    .feature-icon.cyan {
+        background: var(--accent-cyan-dim);
+        color: var(--accent-cyan);
+    }
+
+    .feature-icon.purple {
+        background: rgba(163, 113, 247, 0.15);
+        color: var(--accent-purple);
+    }
+
+    .feature-icon.green {
+        background: rgba(63, 185, 80, 0.15);
+        color: var(--accent-green);
+    }
+
+    .feature-icon.orange {
+        background: rgba(240, 136, 62, 0.15);
+        color: var(--accent-orange);
+    }
+
+    .feature-card h3 {
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .feature-card p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Integrations */
+    .integrations {
+        padding: 100px 0;
+    }
+
+    .integrations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .integration-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 32px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .integration-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px var(--shadow-color);
+    }
+
+    .integration-icon {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 20px;
+    }
+
+    .integration-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .integration-card h3 {
+        font-family: var(--font-mono);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .integration-card p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+    }
+
+    /* Download */
+    .download {
+        padding: 100px 0;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+    }
+
+    .section-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        margin-top: 16px;
+    }
+
+    .platform-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+    }
+
+    .platform-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 32px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .platform-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-cyan);
+        box-shadow: 0 16px 32px var(--shadow-color);
+    }
+
+    .platform-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 20px;
+        color: var(--accent-cyan);
+    }
+
+    .platform-icon.linux {
+        color: #ffcc00;
+    }
+
+    .platform-icon.flatpak {
+        color: var(--accent-purple);
+    }
+
+    .platform-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .platform-card h3 {
+        font-family: var(--font-mono);
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .platform-req {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+    }
+
+    .download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .unavailable {
+        display: block;
+        padding: 14px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .install-hint {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 12px;
+    }
+
+    .download-footer {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-top: 48px;
+        flex-wrap: wrap;
+    }
+
+    .alt-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+    }
+
+    .alt-link:hover {
+        color: var(--accent-cyan);
+    }
+
+    @media (max-width: 640px) {
+        .hero-cta {
+            flex-direction: column;
+        }
+
+        .hero-cta .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .platform-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .download-footer {
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+    }
+</style>

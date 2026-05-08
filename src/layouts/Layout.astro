@@ -10,6 +10,17 @@ const { title, description = "Openza - Open source productivity applications for
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script is:inline>
+        // Theme initialization - runs before page render to prevent flash
+        (function() {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = stored || (prefersDark ? 'dark' : 'light');
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content={description}>
@@ -34,6 +45,23 @@ const { title, description = "Openza - Open source productivity applications for
     <slot />
 
     <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                if (newTheme === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+
         // Header scroll effect
         const header = document.getElementById('header');
         if (header) {
