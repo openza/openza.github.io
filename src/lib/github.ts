@@ -54,10 +54,9 @@ export async function getLatestRelease(repo: string): Promise<ProjectRelease | n
 }
 
 export async function getAllProjectReleases() {
-  const [tasks, flow] = await Promise.all([
-    getLatestRelease('tasks'),
+  const [flow] = await Promise.all([
     getLatestRelease('flow')
   ]);
 
-  return { tasks, flow };
+  return { tasks: null, flow };
 }
