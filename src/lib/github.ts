@@ -20,6 +20,9 @@ export interface ProjectRelease {
   };
 }
 
+export const TASKS_STORE_URL = 'https://apps.microsoft.com/detail/9NQGDKXGRGF8';
+export const TASKS_FALLBACK_VERSION = 'v1.0.1';
+
 export async function getLatestRelease(repo: string): Promise<ProjectRelease | null> {
   try {
     const response = await fetch(
@@ -54,9 +57,10 @@ export async function getLatestRelease(repo: string): Promise<ProjectRelease | n
 }
 
 export async function getAllProjectReleases() {
-  const [flow] = await Promise.all([
+  const [tasks, flow] = await Promise.all([
+    getLatestRelease('tasks'),
     getLatestRelease('flow')
   ]);
 
-  return { tasks: null, flow };
+  return { tasks, flow };
 }
