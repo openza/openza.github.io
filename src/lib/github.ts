@@ -15,13 +15,14 @@ export interface ProjectRelease {
   releaseUrl: string;
   assets: {
     windows: string | null;
-    appimage: string | null;
-    flatpak: string | null;
   };
 }
 
 export const TASKS_STORE_URL = 'https://apps.microsoft.com/detail/9NQGDKXGRGF8';
 export const TASKS_FALLBACK_VERSION = 'v1.0.1';
+export const READER_STORE_URL = 'https://apps.microsoft.com/detail/9NNPMN0JSSW5?hl=en-us&gl=IN';
+export const READER_FALLBACK_VERSION = 'v1.1.0';
+export const FLOW_FALLBACK_VERSION = 'WinUI pre-release';
 
 export async function getLatestRelease(repo: string): Promise<ProjectRelease | null> {
   try {
@@ -46,8 +47,6 @@ export async function getLatestRelease(repo: string): Promise<ProjectRelease | n
       releaseUrl: data.html_url,
       assets: {
         windows: data.assets.find(a => a.name.endsWith('.exe'))?.browser_download_url ?? null,
-        appimage: data.assets.find(a => a.name.endsWith('.AppImage'))?.browser_download_url ?? null,
-        flatpak: data.assets.find(a => a.name.endsWith('.flatpak'))?.browser_download_url ?? null,
       }
     };
   } catch (error) {
@@ -57,10 +56,10 @@ export async function getLatestRelease(repo: string): Promise<ProjectRelease | n
 }
 
 export async function getAllProjectReleases() {
-  const [tasks, flow] = await Promise.all([
+  const [tasks, reader] = await Promise.all([
     getLatestRelease('tasks'),
-    getLatestRelease('flow')
+    getLatestRelease('reader')
   ]);
 
-  return { tasks, flow };
+  return { tasks, reader };
 }
