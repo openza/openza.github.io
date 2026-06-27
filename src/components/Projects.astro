@@ -1,9 +1,10 @@
 ---
-import { TASKS_FALLBACK_VERSION, TASKS_STORE_URL, getAllProjectReleases } from '../lib/github';
+import { FLOW_FALLBACK_VERSION, READER_FALLBACK_VERSION, READER_STORE_URL, TASKS_FALLBACK_VERSION, TASKS_STORE_URL, getAllProjectReleases } from '../lib/github';
 
 const releases = await getAllProjectReleases();
 const tasksVersion = releases.tasks?.version ?? TASKS_FALLBACK_VERSION;
-const flowVersion = releases.flow?.version ?? 'v0.1.0';
+const readerVersion = releases.reader?.version ?? READER_FALLBACK_VERSION;
+const flowVersion = releases.flow?.version ?? FLOW_FALLBACK_VERSION;
 ---
 
 <section class="projects" id="projects">
@@ -49,18 +50,18 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                 <div class="project-content">
                     <h3>
                         Openza Reader
-                        <span class="project-badge">pre-release</span>
+                        <span class="project-badge">{readerVersion}</span>
                     </h3>
                     <p>Fast, read-only Markdown reader for Windows. Open README files safely with good typography, TOC navigation, search, zoom, and auto reload.</p>
                     <div class="project-links">
-                        <a href="/reader" class="btn btn-primary">
+                        <a href={READER_STORE_URL} class="btn btn-primary">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
-                            Read Docs
+                            Get on Microsoft Store
                         </a>
-                        <a href="https://github.com/openza/reader" target="_blank" class="project-link">
-                            View Repository
+                        <a href="/reader" class="project-link">
+                            Read Docs
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -70,7 +71,7 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                 <div class="project-status">
                     <span class="status-indicator">
                         <span class="status-dot"></span>
-                        Preview
+                        Store live
                     </span>
                 </div>
             </div>
@@ -86,12 +87,12 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                     <div class="project-links">
                         <a href="/projects/flow" class="btn btn-primary">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
-                            Download Free
+                            Learn More
                         </a>
                         <a href="/flow" class="project-link">
-                            Learn More
+                            Read Docs
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -101,7 +102,7 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                 <div class="project-status">
                     <span class="status-indicator">
                         <span class="status-dot"></span>
-                        Released
+                        Store pending
                     </span>
                 </div>
             </div>
