@@ -1,8 +1,8 @@
 ---
-import { getAllProjectReleases } from '../lib/github';
+import { TASKS_FALLBACK_VERSION, TASKS_STORE_URL, getAllProjectReleases } from '../lib/github';
 
 const releases = await getAllProjectReleases();
-const tasksVersion = releases.tasks?.version ?? 'v1.0.1';
+const tasksVersion = releases.tasks?.version ?? TASKS_FALLBACK_VERSION;
 const flowVersion = releases.flow?.version ?? 'v0.1.0';
 ---
 
@@ -22,7 +22,7 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                     </h3>
                     <p>Windows-native, local-first task management with SQLite, Todoist and Microsoft To Do sync, local restore points, and optional OneDrive backup.</p>
                     <div class="project-links">
-                        <a href="https://apps.microsoft.com/detail/9NQGDKXGRGF8" class="btn btn-primary">
+                        <a href={TASKS_STORE_URL} class="btn btn-primary">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
