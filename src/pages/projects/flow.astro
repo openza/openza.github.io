@@ -2,9 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { FLOW_FALLBACK_VERSION } from '../../lib/github';
+import { FLOW_FALLBACK_VERSION, getLatestRelease } from '../../lib/github';
 
-const version = FLOW_FALLBACK_VERSION;
+const release = await getLatestRelease('flow', { includePrereleases: true });
+const version = release?.version ?? FLOW_FALLBACK_VERSION;
 ---
 
 <Layout title="Openza Flow - GitHub PR Review Inbox" description="Your GitHub PR review inbox. Track review requests, manage your PRs, and never miss a code review again.">
@@ -168,7 +169,7 @@ const version = FLOW_FALLBACK_VERSION;
                     </div>
                 </div>
                 <div class="download-footer">
-                    <a href="https://github.com/openza/flow/releases" target="_blank" class="alt-link">
+                    <a href="https://github.com/openza/flow/releases" target="_blank" rel="noopener noreferrer" class="alt-link">
                         GitHub releases
                     </a>
                     <a href="/flow/getting-started/installation" class="alt-link">
