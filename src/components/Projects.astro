@@ -2,7 +2,7 @@
 import { getAllProjectReleases } from '../lib/github';
 
 const releases = await getAllProjectReleases();
-const tasksVersion = 'v1.0.0 soon';
+const tasksVersion = releases.tasks?.version ?? 'v1.0.1';
 const flowVersion = releases.flow?.version ?? 'v0.1.0';
 ---
 
@@ -20,16 +20,16 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                         Openza Tasks
                         <span class="project-badge">{tasksVersion}</span>
                     </h3>
-                    <p>Windows-native, local-first task management with SQLite, Todoist and Microsoft To Do sync, durable backups, and optional OneDrive backup.</p>
+                    <p>Windows-native, local-first task management with SQLite, Todoist and Microsoft To Do sync, local restore points, and optional OneDrive backup.</p>
                     <div class="project-links">
-                        <a href="/projects/tasks" class="btn btn-primary">
+                        <a href="https://apps.microsoft.com/detail/9NQGDKXGRGF8" class="btn btn-primary">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
-                            Learn More
+                            Get on Microsoft Store
                         </a>
-                        <a href="https://github.com/openza/tasks#readme" class="project-link">
-                            View Docs
+                        <a href="/projects/tasks" class="project-link">
+                            Learn More
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -39,7 +39,7 @@ const flowVersion = releases.flow?.version ?? 'v0.1.0';
                 <div class="project-status">
                     <span class="status-indicator">
                         <span class="status-dot"></span>
-                        Windows-first
+                        Store live
                     </span>
                 </div>
             </div>

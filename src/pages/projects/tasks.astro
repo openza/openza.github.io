@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-const version = 'WinUI v1.0.0';
+const version = 'WinUI v1.0.1';
+const storeUrl = 'https://apps.microsoft.com/detail/9NQGDKXGRGF8';
 ---
 
 <Layout title="Openza Tasks - Windows Native Task Manager" description="A Windows-native, local-first task manager with SQLite, Todoist and Microsoft To Do sync, durable backups, and optional OneDrive backup.">
@@ -23,14 +24,14 @@ const version = 'WinUI v1.0.0';
                     <p class="hero-description">
                         Openza Tasks is a Windows-first task manager built with WinUI 3,
                         local SQLite storage, optional Todoist and Microsoft To Do sync,
-                        durable local backups, and optional OneDrive backup snapshots.
+                        local restore points, and optional OneDrive backup snapshots.
                     </p>
                     <div class="hero-cta">
-                        <a href="https://github.com/openza/tasks#readme" class="btn btn-primary">
+                        <a href={storeUrl} class="btn btn-primary">
                             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
                             </svg>
-                            View Documentation
+                            Get on Microsoft Store
                         </a>
                         <a href="https://github.com/openza/tasks" class="btn btn-secondary">
                             View Repository
@@ -82,7 +83,7 @@ const version = 'WinUI v1.0.0';
                             </svg>
                         </div>
                         <h3>Automatic Backups</h3>
-                        <p>Automatic and manual backups live outside package state, with optional OneDrive snapshots for PC loss or reset scenarios.</p>
+                        <p>Automatic and manual restore points support rollback, with optional OneDrive backup snapshots for PC loss or reset scenarios.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon cyan">
@@ -141,8 +142,8 @@ const version = 'WinUI v1.0.0';
             <div class="container">
                 <div class="section-header">
                     <p class="section-label">Availability</p>
-                    <h2 class="section-title">Windows Production Release</h2>
-                    <p class="section-subtitle">Openza Tasks is moving to a clean Windows-native WinUI production line. The first public WinUI release will start at v1.0.0.</p>
+                    <h2 class="section-title">Live on Microsoft Store</h2>
+                    <p class="section-subtitle">Openza Tasks v1.0.1 is the public Windows-native WinUI release line for Windows 10 22H2 and Windows 11.</p>
                 </div>
                 <div class="platform-grid">
                     <div class="platform-card">
@@ -153,8 +154,8 @@ const version = 'WinUI v1.0.0';
                         </div>
                         <h3>Windows</h3>
                         <p class="platform-req">Windows 10 22H2 or Windows 11</p>
-                        <a href="https://github.com/openza/tasks#building-from-source" class="btn btn-primary download-btn">
-                            Installation Guide
+                        <a href={storeUrl} class="btn btn-primary download-btn">
+                            Get on Microsoft Store
                         </a>
                     </div>
                     <div class="platform-card">
@@ -172,10 +173,10 @@ const version = 'WinUI v1.0.0';
                 </div>
                 <div class="download-footer">
                     <a href="https://github.com/openza/tasks/releases" target="_blank" class="alt-link">
-                        Legacy releases on GitHub
+                        GitHub releases
                     </a>
                     <a href="https://github.com/openza/tasks#building-from-source" class="alt-link">
-                        Installation guide
+                        Build from source
                     </a>
                 </div>
             </div>
