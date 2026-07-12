@@ -1,120 +1,16 @@
-# Openza Organization Website
+# Openza legacy website
 
-This is the source code for the Openza organization landing page, hosted at https://openza.github.io
+The Openza website and product guides now live on [solanky.dev/openza](https://solanky.dev/openza/).
 
-## Technology Stack
+This repository keeps `openza.github.io` working as a lightweight redirect so existing links remain useful. GitHub Actions deploys the static files in `legacy-site/`; there is no application build or duplicated website content to maintain.
 
-- **Astro** - Static site generator with component-based architecture
-- **Tailwind CSS** - Utility-first CSS framework
-- **GitHub Actions** - Automatic deployment with pnpm
-- **GitHub Pages** - Free hosting
+## Destinations
 
-## Project Structure
-
-```
-├── public/              # Static assets (icons, images)
-│   ├── favicon.svg
-│   ├── icon.svg
-│   ├── icon-large.svg
-│   └── logo.svg
-├── src/
-│   ├── components/      # Reusable Astro components
-│   │   ├── About.astro
-│   │   ├── Features.astro
-│   │   ├── Footer.astro
-│   │   ├── Header.astro
-│   │   ├── Hero.astro
-│   │   └── Projects.astro
-│   ├── layouts/         # Page layouts
-│   │   └── Layout.astro
-│   └── pages/           # Route pages
-│       └── index.astro
-├── astro.config.mjs     # Astro configuration
-├── package.json
-└── tsconfig.json
-```
-
-## Local Development
-
-### Prerequisites
-
-- Node.js 20+
-- pnpm (recommended) or npm
-
-### Setup
-
-```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
-```
-
-The development server runs at `http://localhost:4321`
-
-## Deployment
-
-The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch.
-
-### How it works
-
-1. Push changes to `main` branch
-2. GitHub Actions workflow (`.github/workflows/deploy.yml`) triggers
-3. Astro builds the site to `dist/` folder
-4. Built files are deployed to GitHub Pages
-5. Site is live at https://openza.github.io
-
-### Manual deployment check
-
-- Check the "Actions" tab to see deployment progress
-- Deployment usually takes 1-2 minutes
-
-## Customization
-
-### Update Content
-
-Edit the Astro components in `src/components/`:
-- `Hero.astro` - Main hero section with headline
-- `Features.astro` - Feature highlights
-- `Projects.astro` - Project listings
-- `About.astro` - About section
-- `Header.astro` - Navigation header
-- `Footer.astro` - Footer with links
-
-### Update Styling
-
-- Modify Tailwind classes directly in component files
-- Add custom CSS in `Layout.astro` or component `<style>` tags
-- Current color scheme uses charcoal/slate professional palette
-
-### Add New Pages
-
-Create new `.astro` files in `src/pages/`:
-```astro
----
-import Layout from '../layouts/Layout.astro';
----
-
-<Layout title="Page Title">
-  <!-- Your content here -->
-</Layout>
-```
-
-## Projects
-
-| Project | Description |
-|---------|-------------|
-| [tasks](https://github.com/openza/tasks) | Windows-native, local-first task manager with Todoist/Microsoft To Do sync and durable backups. |
-| [reader](https://github.com/openza/reader) | Fast, read-only Markdown reader for Windows. |
-| [gitdesk](https://github.com/openza/gitdesk) | GitHub PR review inbox. Track review requests and manage PRs from your desktop. |
+- Openza: <https://solanky.dev/openza/>
+- Tasks guide: <https://solanky.dev/openza/tasks/>
+- Reader guide: <https://solanky.dev/openza/reader/>
+- Flow guide: <https://solanky.dev/openza/flow/>
 
 ## License
 
-MIT License - See LICENSE file for details.
+MIT License. See [LICENSE](LICENSE).
