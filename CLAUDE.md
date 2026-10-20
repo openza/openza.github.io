@@ -2,7 +2,7 @@
 
 Also follow the shared Openza guidance in `../AGENTS.md`.
 
-This public repository exists only to redirect the former `openza.github.io` organization website to `https://solanky.dev/openza/`.
+This public repository exists only to redirect the former `openza.github.io` organization website to `https://openza.org/`.
 
 - Keep the deployment static and dependency-free.
 - Do not recreate a separate Openza website here.
